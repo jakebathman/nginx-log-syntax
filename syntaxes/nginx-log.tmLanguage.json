@@ -1,0 +1,32 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "NGINX log",
+	"patterns": [
+		{
+			"include": "#log_line"
+		}
+	],
+	"repository": {
+		"log_line": {
+			"patterns": [{
+				"name": "meta.log.nginx",
+				"match": "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\-) (\\-) ([A-Za-z0-9_-]|\\-) (\\[[A-Za-z0-9_\\-\\\/\\: \\+]+\\]) \"([A-Za-z]+ ([\\w\\W]+?) ([\\w\\W]+?))\" ([0-9]+) ([0-9]+)?(?: \"([\\w\\W]+?)\")?(?: \"([\\w\\W]+?)\")?(?: \"([\\w\\W]+?)\")?",
+				"captures": {
+					"1": {"name": "remote_addr.keyword"},
+					"2": {"name": "spacer.comment"},
+					"3": {"name": "remote_user.text"},
+					"4": {"name": "time_local.string"},
+					"5": {"name": "request_type.constant"},
+					"6": {"name": "request.support.function"},
+					"7": {"name": "request_result.keyword.operator"},
+					"8": {"name": "status.keyword.other"},
+					"9": {"name": "body_bytes_sent.entity.other.attribute-name"},
+					"10": {"name": "http_referer.entity.name.tag"},
+					"11": {"name": "http_user_agent.constant.numeric"},
+					"12": {"name": "http_x_forwarded_fo.string"}
+				}
+			}]
+		}
+	},
+	"scopeName": "text.nginx"
+}

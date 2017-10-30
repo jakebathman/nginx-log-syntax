@@ -1,0 +1,35 @@
+{
+    "name": "nginx-log-highlighter",
+    "displayName": "NGINX Log Highlighter",
+    "description": "Syntax support for NGINX access logs",
+    "version": "1.0.0",
+    "publisher": "jakebathman",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "galleryBanner": {
+        "color": "#149639",
+        "theme": "light"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jakebathman/nginx-log-syntax"
+    },
+    "icon": "images/icon.png",    
+    "contributes": {
+        "languages": [{
+            "id": "nginx-log",
+            "aliases": ["NGINX log", "nginx-log"],
+            "extensions": [".log"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "nginx-log",
+            "scopeName": "text.nginx",
+            "path": "./syntaxes/nginx-log.tmLanguage.json"
+        }]
+    }
+}
